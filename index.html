@@ -376,7 +376,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/09/Spring的@PostConstruct标签详解/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/05/09/Spring的@PostConstruct标签详解/" itemprop="url">Spring的@PostConstruct标签详解</a></h1>
         
 
         <div class="post-meta">
@@ -428,7 +428,7 @@
       
         
           
-            <h3 id="Spring的-PostConstruct标签详解"><a href="#Spring的-PostConstruct标签详解" class="headerlink" title="Spring的@PostConstruct标签详解"></a>Spring的@PostConstruct标签详解</h3><p>@PostContruct是spring框架的注解，在方法上加该注解会在项目启动的时候执行该方法，也可以理解为在spring容器初始化的时候执行该方法。</p>
+            <p>@PostContruct是spring框架的注解，在方法上加该注解会在项目启动的时候执行该方法，也可以理解为在spring容器初始化的时候执行该方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 功能说明：启动项目 将字典放入缓存中</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@PostConstruct</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SynDictionary</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//设置日期格式</span></span><br><span class="line">      SimpleDateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss:SSS"</span>);</span><br><span class="line">      <span class="comment">// new Date()为获取当前系统时间</span></span><br><span class="line">      System.out.println(<span class="string">"字典缓存开始："</span>+df.format(<span class="keyword">new</span> Date()));</span><br><span class="line"></span><br><span class="line">      List&lt;Dic&gt; dicList = dicmanagedao.getDicInfo();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (Dic dic:dicList) &#123;</span><br><span class="line">          EHCacheMonitFile.saveCatch(<span class="string">"maxvalue_dic_"</span> + dic.getDictype().getCode() + <span class="string">"_"</span> + </span><br><span class="line">                                     dic.getCode(),  dic.getName());</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">      System.out.println(<span class="string">"字典缓存结束："</span>+df.format(<span class="keyword">new</span> Date()));<span class="comment">// new Date()为获取当前系统时间</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
