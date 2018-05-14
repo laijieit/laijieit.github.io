@@ -229,6 +229,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/JAVA中各种锁🔒/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laijie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="絆走れ奇跡の子馬">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/14/JAVA中各种锁🔒/" itemprop="url">JAVA中各种锁🔒</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-14T16:40:36+08:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/java常用的几种线程池比较/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,11 +419,58 @@
       
         
           
-            <p>###几种线程池的官方介绍</p>
+            <p>###线程池的作用</p>
 <ul>
-<li>ExecutorService java.util.concurrent.Executors.newFixedThreadPool(int nThreads)</li>
+<li>线程池是限制系统中线程的执行数量</li>
+<li>减少线程创建和销毁的次数</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded queue. At any point, at most nThreads threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available. If any thread terminates due to a failure during execution prior to shutdown, a <span class="keyword">new</span> one will take its place <span class="keyword">if</span> needed to execute subsequent tasks. The threads in the pool will exist until it is explicitly shutdown.</span><br><span class="line"></span><br><span class="line">Parameters:</span><br><span class="line">nThreads the number of threads in the pool</span><br><span class="line">Returns:</span><br><span class="line">the newly created thread pool</span><br><span class="line">Throws:</span><br><span class="line">IllegalArgumentException - <span class="keyword">if</span> nThreads &lt;= <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>###为什么要使用线程池</p>
+<ul>
+<li>减少系统中线程的创建和销毁次数，使得每个工作线程可以重复利用，可以执行多个任务</li>
+<li>可以根据系统的承受能力，限制线程的创建数量，减少得系统资源的消耗。（线程数量越多，占用资源越多）</li>
+</ul>
+<h3 id="JAVA中的线程池"><a href="#JAVA中的线程池" class="headerlink" title="JAVA中的线程池"></a>JAVA中的线程池</h3><p>Java里面线程池的顶级接口是Executor，但是严格意义上讲Executor并不是一个线程池，而只是一个执行线程的工具。真正的线程池接口是ExecutorService。<br>比较重要的几个类：</p>
+<table>
+<thead>
+<tr>
+<th>ExecutorService</th>
+<th style="text-align:right">真正的线程池接口。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ScheduledExecutorService</td>
+<td style="text-align:right">能和Timer/TimerTask类似，解决那些需要任务重复执行的问题。</td>
+</tr>
+<tr>
+<td>ThreadPoolExecutor</td>
+<td style="text-align:right">ExecutorService的默认实现。</td>
+</tr>
+<tr>
+<td>ScheduledThreadPoolExecutor</td>
+<td style="text-align:right">继承ThreadPoolExecutor的ScheduledExecutorService接口实现，周期性任务调度的类实现。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Executors类里面提供了一些静态工厂，生成一些常用的线程池"><a href="#Executors类里面提供了一些静态工厂，生成一些常用的线程池" class="headerlink" title="Executors类里面提供了一些静态工厂，生成一些常用的线程池"></a>Executors类里面提供了一些静态工厂，生成一些常用的线程池</h3><ol>
+<li>newSingleThreadExecutor<br>创建一个单线程的线程池。这个线程池只有一个线程在工作，也就是相当于单线程串行执行所有任务。如果这个唯一的线程因为异常结束，那么会有一个新的线程来替代它。此线程池保证所有任务的执行顺序按照任务的提交顺序执行。</li>
+<li>newFixedThreadPool<br>创建固定大小的线程池。每次提交一个任务就创建一个线程，直到线程达到线程池的最大大小。线程池的大小一旦达到最大值就会保持不变，如果某个线程因为执行异常而结束，那么线程池会补充一个新线程。</li>
+<li>newCachedThreadPool<br>创建一个可缓存的线程池。如果线程池的大小超过了处理任务所需要的线程，<br>那么就会回收部分空闲（60秒不执行任务）的线程，当任务数增加时，此线程池又可以智能的添加新线程来处理任务。此线程池不会对线程池大小做限制，线程池大小完全依赖于操作系统（或者说JVM）能够创建的最大线程大小。</li>
+<li>newScheduledThreadPool<br>创建一个大小无限的线程池。此线程池支持定时以及周期性执行任务的需求。</li>
+</ol>
+<p>###几种线程池的官方介绍</p>
+<ul>
+<li>FixedThreadPool</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ExecutorService java.util.concurrent.Executors.newFixedThreadPool(<span class="keyword">int</span> nThreads)</span><br><span class="line"></span><br><span class="line">Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded queue. At any point, at most nThreads threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available. If any thread terminates due to a failure during execution prior to shutdown, a <span class="keyword">new</span> one will take its place <span class="keyword">if</span> needed to execute subsequent tasks. The threads in the pool will exist until it is explicitly shutdown.</span><br><span class="line"></span><br><span class="line">Parameters:</span><br><span class="line">nThreads the number of threads in the pool</span><br><span class="line">Returns:</span><br><span class="line">the newly created thread pool</span><br><span class="line">Throws:</span><br><span class="line">IllegalArgumentException - <span class="keyword">if</span> nThreads &lt;= <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>CachedThreadPool</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Creates a thread pool that creates new threads as needed, but will reuse previously constructed threads when they are available. These pools will typically improve the performance of programs that execute many short-lived asynchronous tasks. Calls to execute will reuse previously constructed threads if available. If no existing thread is available, a new thread will be created and added to the pool. Threads that have not been used for sixty seconds are terminated and removed from the cache. Thus, a pool that remains idle for long enough will not consume any resources. Note that pools with similar properties but different details (for example, timeout parameters) may be created using ThreadPoolExecutor constructors.</span><br><span class="line"></span><br><span class="line">Returns:</span><br><span class="line">the newly created thread pool</span><br></pre></td></tr></table></figure>
+<ul>
+<li>newSingleThreadScheduledExecutor</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Creates a single-threaded executor that can schedule commands to run after a given delay, or to execute periodically. (Note however that if this single thread terminates due to a failure during execution prior to shutdown, a new one will take its place if needed to execute subsequent tasks.) Tasks are guaranteed to execute sequentially, and no more than one task will be active at any given time. Unlike the otherwise equivalent newScheduledThreadPool(1, threadFactory) the returned executor is guaranteed not to be reconfigurable to use additional threads.</span><br><span class="line"></span><br><span class="line">Parameters:</span><br><span class="line">threadFactory the factory to use when creating new threads</span><br><span class="line">Returns:</span><br><span class="line">a newly created scheduled executor</span><br><span class="line">Throws:</span><br><span class="line">NullPointerException - if threadFactory is null</span><br></pre></td></tr></table></figure>
           
         
       
@@ -633,7 +799,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
