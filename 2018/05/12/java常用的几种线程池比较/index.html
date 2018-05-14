@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="###几种线程池的官方介绍  ExecutorService java.util.concurrent.Executors.newFixedThreadPool(int nThreads)  123456789Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java常用的几种线程池比较">
 <meta property="og:url" content="http://yoursite.com/2018/05/12/java常用的几种线程池比较/index.html">
 <meta property="og:site_name" content="絆走れ奇跡の子馬">
+<meta property="og:description" content="###几种线程池的官方介绍  ExecutorService java.util.concurrent.Executors.newFixedThreadPool(int nThreads)  123456789Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded qu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-12T04:35:10.384Z">
+<meta property="og:updated_time" content="2018-05-14T07:18:04.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java常用的几种线程池比较">
+<meta name="twitter:description" content="###几种线程池的官方介绍  ExecutorService java.util.concurrent.Executors.newFixedThreadPool(int nThreads)  123456789Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded qu">
 
 
 
@@ -296,7 +299,11 @@
       
 
       
-        
+        <p>###几种线程池的官方介绍</p>
+<ul>
+<li>ExecutorService java.util.concurrent.Executors.newFixedThreadPool(int nThreads)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Creates a thread pool that reuses a fixed number of threads operating off a shared unbounded queue. At any point, at most nThreads threads will be active processing tasks. If additional tasks are submitted when all threads are active, they will wait in the queue until a thread is available. If any thread terminates due to a failure during execution prior to shutdown, a <span class="keyword">new</span> one will take its place <span class="keyword">if</span> needed to execute subsequent tasks. The threads in the pool will exist until it is explicitly shutdown.</span><br><span class="line"></span><br><span class="line">Parameters:</span><br><span class="line">nThreads the number of threads in the pool</span><br><span class="line">Returns:</span><br><span class="line">the newly created thread pool</span><br><span class="line">Throws:</span><br><span class="line">IllegalArgumentException - <span class="keyword">if</span> nThreads &lt;= <span class="number">0</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
