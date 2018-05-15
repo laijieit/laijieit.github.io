@@ -277,6 +277,141 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/登陆注册逻辑开发的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laijie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="絆走れ奇跡の子馬">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/15/登陆注册逻辑开发的总结/" itemprop="url">
+                  登陆注册逻辑开发的总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-15 11:30:29" itemprop="dateCreated datePublished" datetime="2018-05-15T11:30:29+08:00">2018-05-15</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/高级并发编程学习-atomic包学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,9 +458,13 @@
                 
               
 
-              <time title="Created: 2018-05-15 10:48:17" itemprop="dateCreated datePublished" datetime="2018-05-15T10:48:17+08:00">2018-05-15</time>
+              <time title="Created: 2018-05-15 10:48:17 / Modified: 11:33:12" itemprop="dateCreated datePublished" datetime="2018-05-15T10:48:17+08:00">2018-05-15</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -359,7 +498,8 @@
       
         
           
-            
+            <h3 id="官网对java-util-concurrent-atomic-的解释说明"><a href="#官网对java-util-concurrent-atomic-的解释说明" class="headerlink" title="官网对java.util.concurrent.atomic.* 的解释说明"></a>官网对java.util.concurrent.atomic.* 的解释说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">A small toolkit of classes that support lock-free thread-safe programming on single variables. In essence, the classes in this package extend the notion of volatile values, fields, and array elements to those that also provide an atomic conditional update operation of the form:</span><br><span class="line">  boolean compareAndSet(expectedValue, updateValue);</span><br><span class="line">This method (which varies in argument types across different classes) atomically sets a variable to the updateValue if it currently holds the expectedValue, reporting true on success. The classes in this package also contain methods to get and unconditionally set values, as well as a weaker conditional atomic update operation weakCompareAndSet described below.</span><br><span class="line"></span><br><span class="line">The specifications of these methods enable implementations to employ efficient machine-level atomic instructions that are available on contemporary processors. However on some platforms, support may entail some form of internal locking. Thus the methods are not strictly guaranteed to be non-blocking -- a thread may block transiently before performing the operation.</span><br><span class="line"></span><br><span class="line">Instances of classes AtomicBoolean, AtomicInteger, AtomicLong, and AtomicReference each provide access and updates to a single variable of the corresponding type. Each class also provides appropriate utility methods for that type. For example, classes AtomicLong and AtomicInteger provide atomic increment methods. One application is to generate sequence numbers, as in:</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> class Sequencer &#123;</span><br><span class="line">   private final AtomicLong sequenceNumber</span><br><span class="line">     = new AtomicLong(0);</span><br><span class="line">   public long next() &#123;</span><br><span class="line">     return sequenceNumber.getAndIncrement();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">It is straightforward to define new utility functions that, like getAndIncrement, apply a function to a value atomically. For example, given some transformation</span><br><span class="line"></span><br><span class="line">  long transform(long input)</span><br><span class="line">write your utility method as follows:</span><br><span class="line"> </span><br><span class="line"> long getAndTransform(AtomicLong var) &#123;</span><br><span class="line">   long prev, next;</span><br><span class="line">   do &#123;</span><br><span class="line">     prev = var.get();</span><br><span class="line">     next = transform(prev);</span><br><span class="line">   &#125; while (!var.compareAndSet(prev, next));</span><br><span class="line">   return prev; // return next; for transformAndGet</span><br><span class="line"> &#125;</span><br><span class="line">The memory effects for accesses and updates of atomics generally follow the rules for volatiles, as stated in The Java Language Specification (17.4 Memory Model):</span><br><span class="line"></span><br><span class="line">get has the memory effects of reading a volatile variable.</span><br><span class="line">set has the memory effects of writing (assigning) a volatile variable.</span><br><span class="line">lazySet has the memory effects of writing (assigning) a volatile variable except that it permits reorderings with subsequent (but not previous) memory actions that do not themselves impose reordering constraints with ordinary non-volatile writes. Among other usage contexts, lazySet may apply when nulling out, for the sake of garbage collection, a reference that is never accessed again.</span><br><span class="line">weakCompareAndSet atomically reads and conditionally writes a variable but does not create any happens-before orderings, so provides no guarantees with respect to previous or subsequent reads and writes of any variables other than the target of the weakCompareAndSet.</span><br><span class="line">compareAndSet and all other read-and-update operations such as getAndIncrement have the memory effects of both reading and writing volatile variables.</span><br><span class="line">In addition to classes representing single values, this package contains Updater classes that can be used to obtain compareAndSet operations on any selected volatile field of any selected class. AtomicReferenceFieldUpdater, AtomicIntegerFieldUpdater, and AtomicLongFieldUpdater are reflection-based utilities that provide access to the associated field types. These are mainly of use in atomic data structures in which several volatile fields of the same node (for example, the links of a tree node) are independently subject to atomic updates. These classes enable greater flexibility in how and when to use atomic updates, at the expense of more awkward reflection-based setup, less convenient usage, and weaker guarantees.</span><br><span class="line"></span><br><span class="line">The AtomicIntegerArray, AtomicLongArray, and AtomicReferenceArray classes further extend atomic operation support to arrays of these types. These classes are also notable in providing volatile access semantics for their array elements, which is not supported for ordinary arrays.</span><br><span class="line"></span><br><span class="line">The atomic classes also support method weakCompareAndSet, which has limited applicability. On some platforms, the weak version may be more efficient than compareAndSet in the normal case, but differs in that any given invocation of the weakCompareAndSet method may return false spuriously (that is, for no apparent reason). A false return means only that the operation may be retried if desired, relying on the guarantee that repeated invocation when the variable holds expectedValue and no other thread is also attempting to set the variable will eventually succeed. (Such spurious failures may for example be due to memory contention effects that are unrelated to whether the expected and current values are equal.) Additionally weakCompareAndSet does not provide ordering guarantees that are usually needed for synchronization control. However, the method may be useful for updating counters and statistics when such updates are unrelated to the other happens-before orderings of a program. When a thread sees an update to an atomic variable caused by a weakCompareAndSet, it does not necessarily see updates to any other variables that occurred before the weakCompareAndSet. This may be acceptable when, for example, updating performance statistics, but rarely otherwise.</span><br><span class="line"></span><br><span class="line">The AtomicMarkableReference class associates a single boolean with a reference. For example, this bit might be used inside a data structure to mean that the object being referenced has logically been deleted. The AtomicStampedReference class associates an integer value with a reference. This may be used for example, to represent version numbers corresponding to series of updates.</span><br><span class="line"></span><br><span class="line">Atomic classes are designed primarily as building blocks for implementing non-blocking data structures and related infrastructure classes. The compareAndSet method is not a general replacement for locking. It applies only when critical updates for an object are confined to a single variable.</span><br><span class="line"></span><br><span class="line">Atomic classes are not general purpose replacements for java.lang.Integer and related classes. They do not define methods such as equals, hashCode and compareTo. (Because atomic variables are expected to be mutated, they are poor choices for hash table keys.) Additionally, classes are provided only for those types that are commonly useful in intended applications. For example, there is no atomic class for representing byte. In those infrequent cases where you would like to do so, you can use an AtomicInteger to hold byte values, and cast appropriately. You can also hold floats using Float.floatToRawIntBits(float) and Float.intBitsToFloat(int) conversions, and doubles using Double.doubleToRawLongBits(double) and Double.longBitsToDouble(long) conversions.</span><br><span class="line"></span><br><span class="line">Since:</span><br><span class="line">1.5</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1227,7 +1367,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
