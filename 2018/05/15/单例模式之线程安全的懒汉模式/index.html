@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="同步线程安全的懒汉模式12345678910111213141516171819202122232425262728293031323334353637package com.sevenchildren.yzmm.test.atmic;/** *  * @ClassName: Singleton * @Description: 同步线程安全的懒汉模式  * @author laijie * @da">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/05/12/hello-world/index.html">
+<meta property="og:title" content="单例模式之线程安全的懒汉模式">
+<meta property="og:url" content="http://yoursite.com/2018/05/15/单例模式之线程安全的懒汉模式/index.html">
 <meta property="og:site_name" content="絆走れ奇跡の子馬">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="同步线程安全的懒汉模式12345678910111213141516171819202122232425262728293031323334353637package com.sevenchildren.yzmm.test.atmic;/** *  * @ClassName: Singleton * @Description: 同步线程安全的懒汉模式  * @author laijie * @da">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-12T03:03:23.338Z">
+<meta property="og:updated_time" content="2018-05-15T02:36:01.504Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="单例模式之线程安全的懒汉模式">
+<meta name="twitter:description" content="同步线程安全的懒汉模式12345678910111213141516171819202122232425262728293031323334353637package com.sevenchildren.yzmm.test.atmic;/** *  * @ClassName: Singleton * @Description: 同步线程安全的懒汉模式  * @author laijie * @da">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/12/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/15/单例模式之线程安全的懒汉模式/"/>
 
 
 
 
 
-  <title>Hello World | 絆走れ奇跡の子馬</title>
+  <title>单例模式之线程安全的懒汉模式 | 絆走れ奇跡の子馬</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/单例模式之线程安全的懒汉模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="laijie">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">单例模式之线程安全的懒汉模式</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T11:03:23+08:00">
-                2018-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T10:13:34+08:00">
+                2018-05-15
               </time>
             
 
@@ -299,16 +299,22 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h3 id="同步线程安全的懒汉模式"><a href="#同步线程安全的懒汉模式" class="headerlink" title="同步线程安全的懒汉模式"></a>同步线程安全的懒汉模式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sevenchildren.yzmm.test.atmic;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Singleton</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 同步线程安全的懒汉模式 </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> laijie</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> May 15, 2018 9:47:43 AM</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 私有构造函数</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 对象创建过程 1.申请内存空间 2.内存空间初始化 3.instance 指向内存空间</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * 因为 2. 3 没有先后顺序的区别 JVM 和 CPU 会指令重排 会变成 1.申请内存空间 3.instance 指向内存空间 2.内存空间初始化</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * 当第一个线程走到 new Singleton的 3 步骤，第二个线程发现 instance 不为空 返回了 ，但是 第一个线程的 2 因为重排了没有执行，返回的结果是错误的 解决方案： 给 instance 添加 volatile 修饰符 使得对象创建不会重新排序</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">				<span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">					instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###<em>扩展 volatile 类型修饰符</em></p>
+<p> volatile 修饰的变量 在内存中是拥有可见性的 但是不包含原子性。是轻量级的synchrized。在引用valatile修饰的变量的时候会在主内存取最新的值。写操作也会把数据同步到主内存中去</p>
+<h4 id="volatile的使用场景"><a href="#volatile的使用场景" class="headerlink" title="volatile的使用场景"></a>volatile的使用场景</h4><ul>
+<li><p>双重检测 比如单例模式 来禁止指令重排</p>
+<pre><code>原本是 
+   1.先申请内存空间
+   2.初始化内存空间
+   3.把inst 指向内存空间
+ 但是cpu 和 虚拟机发生指令重排 
+  重排的结果是 1 3 2
+ 线程一走到 3 但是没有初始化内存空间
+ 线程二检测到 实例指向空间了就返回了 导致出现问题
+</code></pre></li>
+</ul>
+<h4 id="volatile-原理-TODO"><a href="#volatile-原理-TODO" class="headerlink" title="volatile 原理 TODO"></a>volatile 原理 TODO</h4>
       
     </div>
     
@@ -332,8 +338,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/09/Spring的@PostConstruct标签详解/" rel="next" title="Spring的@PostConstruct标签详解">
-                <i class="fa fa-chevron-left"></i> Spring的@PostConstruct标签详解
+              <a href="/2018/05/14/JAVA中各种锁🔒/" rel="next" title="JAVA中各种锁🔒">
+                <i class="fa fa-chevron-left"></i> JAVA中各种锁🔒
               </a>
             
           </div>
@@ -341,10 +347,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/12/java常用的几种线程池比较/" rel="prev" title="java常用的几种线程池比较">
-                java常用的几种线程池比较 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -458,7 +460,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步线程安全的懒汉模式"><span class="nav-number">1.</span> <span class="nav-text">同步线程安全的懒汉模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile的使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">volatile的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile-原理-TODO"><span class="nav-number">1.2.</span> <span class="nav-text">volatile 原理 TODO</span></a></li></ol></li></ol></div>
             
 
           </div>
