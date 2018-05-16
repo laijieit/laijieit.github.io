@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="絆走れ奇跡の子馬">
 <meta property="og:description" content="同步线程安全的懒汉模式12345678910111213141516171819202122232425262728293031323334353637package com.sevenchildren.yzmm.test.atmic;/** *  * @ClassName: Singleton * @Description: 同步线程安全的懒汉模式  * @author laijie * @da">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-15T02:36:01.504Z">
+<meta property="og:updated_time" content="2018-05-16T15:34:28.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式之线程安全的懒汉模式">
 <meta name="twitter:description" content="同步线程安全的懒汉模式12345678910111213141516171819202122232425262728293031323334353637package com.sevenchildren.yzmm.test.atmic;/** *  * @ClassName: Singleton * @Description: 同步线程安全的懒汉模式  * @author laijie * @da">
@@ -322,12 +322,24 @@
                 
               
 
-              <time title="Created: 2018-05-15 10:13:34 / Modified: 10:36:01" itemprop="dateCreated datePublished" datetime="2018-05-15T10:13:34+08:00">2018-05-15</time>
+              <time title="Created: 2018-05-15 10:13:34" itemprop="dateCreated datePublished" datetime="2018-05-15T10:13:34+08:00">2018-05-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-05-16 23:34:28" itemprop="dateModified" datetime="2018-05-16T23:34:28+08:00">2018-05-16</time>
               
             
           </span>
@@ -375,7 +387,29 @@
  线程二检测到 实例指向空间了就返回了 导致出现问题
 </code></pre></li>
 </ul>
-<h4 id="volatile-原理-TODO"><a href="#volatile-原理-TODO" class="headerlink" title="volatile 原理 TODO"></a>volatile 原理 TODO</h4>
+<h4 id="volatile-原理"><a href="#volatile-原理" class="headerlink" title="volatile 原理"></a>volatile 原理</h4><blockquote>
+<p>理解volatile底层实现的同学知道，volatile的实现最终是加了内存屏障，</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>保证写volatile变量会强制把CPU写缓存区的数据刷新到内存</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>读volatile变量时，使缓存失效，强制从内存中读取最新的值</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>由于内存屏障的存在，volatile变量还能阻止重排序</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>所以volatile变量的修改可以立刻让所有的线程可见，保证了可见性。而不加volatile变量的字段，JMM不保证普通变量的修改立刻被所有的线程可见。所以lazySet说白了就是以普通变量的方式来写变量。</p>
+</blockquote>
+<p><code>`</code>[java]<br>// 对flagA的修改对所有线程立刻可见<br>volatile boolean flagA;<br>// 对flagB的修改不能立刻被其他线程可见<br>boolean flagB;  </p>
+
       
     </div>
 
@@ -488,7 +522,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -528,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步线程安全的懒汉模式"><span class="nav-number">1.</span> <span class="nav-text">同步线程安全的懒汉模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile的使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">volatile的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile-原理-TODO"><span class="nav-number">1.2.</span> <span class="nav-text">volatile 原理 TODO</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步线程安全的懒汉模式"><span class="nav-number">1.</span> <span class="nav-text">同步线程安全的懒汉模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile的使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">volatile的使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#volatile-原理"><span class="nav-number">1.2.</span> <span class="nav-text">volatile 原理</span></a></li></ol></li></ol></div>
             
 
           </div>
