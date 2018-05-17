@@ -323,9 +323,13 @@
                 
               
 
-              <time title="Created: 2018-05-17 10:04:45" itemprop="dateCreated datePublished" datetime="2018-05-17T10:04:45+08:00">2018-05-17</time>
+              <time title="Created: 2018-05-17 10:04:45 / Modified: 10:31:30" itemprop="dateCreated datePublished" datetime="2018-05-17T10:04:45+08:00">2018-05-17</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -359,7 +363,26 @@
       
         
           
-            
+            <p>###final关键字：类、方法、变量</p>
+<ul>
+<li>修饰类：不能被继承</li>
+<li>修饰方法：锁定方法不能被继承类修改 </li>
+<li>修饰变量：<br>1、基本数据类型变量不能修改值<br>2、引用类型变量 能修改里面的数值，但是不能重新指向其他内存空间或对象</li>
+</ul>
+<h3 id="其他修饰的静态方法"><a href="#其他修饰的静态方法" class="headerlink" title="其他修饰的静态方法"></a>其他修饰的静态方法</h3><ul>
+<li>Collections.unmodifiableXXX:Collection、List、Set、Map…</li>
+</ul>
+<blockquote>
+<p>java中 Collections 包中不可修改前缀的变量 里面的值可以修改不能重新指向新的地址</p>
+</blockquote>
+<ul>
+<li>Guava:ImmutableXXX:Collection、List、Set、Map</li>
+</ul>
+<blockquote>
+<p>guava中的Immutable前缀的对象不可以修改里面的值。</p>
+</blockquote>
+<p>###使用场景<br>不可变对象的使用场景是该对象初始化不可变可以使多线程可以安全</p>
+
           
         
       
