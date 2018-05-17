@@ -115,12 +115,14 @@
 <meta property="og:site_name" content="絆走れ奇跡の子馬">
 <meta property="og:description" content="官网对java.util.concurrent.atomic.* 的解释说明1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950A small toolkit of classes that support lock-free thread-safe programmi">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/image/ABA-1.png">
-<meta property="og:updated_time" content="2018-05-17T01:58:13.366Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/15/高级并发编程学习-atomic包学习/ABA-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/15/高级并发编程学习-atomic包学习/ABA-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/15/高级并发编程学习-atomic包学习/ABA-3.png">
+<meta property="og:updated_time" content="2018-05-17T02:11:52.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级并发编程学习-atomic包学习">
 <meta name="twitter:description" content="官网对java.util.concurrent.atomic.* 的解释说明1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950A small toolkit of classes that support lock-free thread-safe programmi">
-<meta name="twitter:image" content="http://yoursite.com/image/ABA-1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/15/高级并发编程学习-atomic包学习/ABA-1.png">
 
 
 
@@ -341,7 +343,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-05-17 09:58:13" itemprop="dateModified" datetime="2018-05-17T09:58:13+08:00">2018-05-17</time>
+                <time title="Modified: 2018-05-17 10:11:52" itemprop="dateModified" datetime="2018-05-17T10:11:52+08:00">2018-05-17</time>
               
             
           </span>
@@ -402,11 +404,24 @@
 <blockquote>
 </blockquote>
 <p>线程1准备用CAS将变量的值由A替换为B，在此之前，线程2将变量的值由A替换为C，又由C替换为A，然后线程1执行CAS时发现变量的值仍然为A，所以CAS成功。但实际上这时的现场已经和最初不同了，尽管CAS成功，但可能存在潜藏的问题，例如下面的例子：</p>
-<p><img src="/image/ABA-1.png" alt="avatar"><br>现有一个用单向链表实现的堆栈，栈顶为A，这时线程T1已经知道A.next为B，然后希望用CAS将栈顶替换为B：</p>
+<p><img src="/2018/05/15/高级并发编程学习-atomic包学习/ABA-1.png" alt="avatar"></p>
+<blockquote>
+<p>现有一个用单向链表实现的堆栈，栈顶为A，这时线程T1已经知道A.next为B，然后希望用CAS将栈顶替换为B：</p>
+</blockquote>
+<blockquote>
 <p>head.compareAndSet(A,B);</p>
+</blockquote>
+<blockquote>
 <p>在T1执行上面这条指令之前，线程T2介入，将A、B出栈，再pushD、C、A，此时堆栈结构如下图，而对象B此时处于游离状态：</p>
+</blockquote>
+<p><img src="/2018/05/15/高级并发编程学习-atomic包学习/ABA-2.png" alt="avatar">   </p>
+<blockquote>
 <p>此时轮到线程T1执行CAS操作，检测发现栈顶仍为A，所以CAS成功，栈顶变为B，但实际上B.next为null，所以此时的情况变为：</p>
+</blockquote>
+<p><img src="/2018/05/15/高级并发编程学习-atomic包学习/ABA-3.png" alt="avatar"></p>
+<blockquote>
 <p>其中堆栈中只有B一个元素，C和D组成的链表不再存在于堆栈中，平白无故就把C、D丢掉了。</p>
+</blockquote>
 <p>**</p>
 <p>描述：当一个值由A改成B，又从B改成A是无法发现的</p>
 <blockquote>
@@ -526,7 +541,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
